@@ -36,17 +36,7 @@ public class SpringIlMioFotoalbumApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		
-//		FOTO --------------------------------------------------------------------------------------------------------
-		
-		Foto foto1 = new Foto("Prima foto", "Foto illuminata", "https://picsum.photos/100/100", false);
-		Foto foto2 = new Foto("Seconda foto", "Foto bianco e nero", "https://picsum.photos/100/100?grayscale", false);
-		Foto foto3 = new Foto("Terza foto", "Immagine sfocata", "https://picsum.photos/100/100/?blur", false);
-		
-		fotoServ.save(foto1);
-		fotoServ.save(foto2);
-		fotoServ.save(foto3);
-		
+				
 //		UTENTI -------------------------------------------------------------------------------------------------------
 		Role roleAdmin = new Role("ADMIN");
 		roleServ.save(roleAdmin);
@@ -64,6 +54,16 @@ public class SpringIlMioFotoalbumApplication implements CommandLineRunner{
 		categoryServ.save(cat1);
 		categoryServ.save(cat2);
 		categoryServ.save(cat3);
+		
+//		FOTO --------------------------------------------------------------------------------------------------------
+		
+		Foto foto1 = new Foto("Prima foto", "Foto illuminata", "https://picsum.photos/100/100", false, cat1, cat3);
+		Foto foto2 = new Foto("Seconda foto", "Foto bianco e nero", "https://picsum.photos/100/100?grayscale", false, cat2);
+		Foto foto3 = new Foto("Terza foto", "Immagine sfocata", "https://picsum.photos/100/100/?blur", false);
+		
+		fotoServ.save(foto1);
+		fotoServ.save(foto2);
+		fotoServ.save(foto3);
 	
 	
 	

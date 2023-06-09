@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- BOOTSTRAP -->
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<title>Aggiungi foto</title>
+</head>
+<body>
+	<header class="my-5 text-center">
+		<h1 class="text-danger"> Aggiungi foto </h1>
+	</header>
+	<main class="container">
+		<form th:action="@{/foto/store}" method="POST">
+		<div class="row">
+			<div class="col-6 my-2">
+				<label for="foto-title" class="form-label">Titolo foto</label>
+				<input id="foto-title" class="form-control" type="text" name="title">
+				<label style="color: red" th:if="${errors != null && errors.hasFieldErrors('title')}">
+						[[ ${errors.getFieldError('title').defaultMessage} ]]
+				</label>			
+			</div>
+			<div class="col-6 my-2">
+				<label for="foto-description" class="form-label">Descrizione foto</label>
+				<textarea id="foto-description" class="form-control" rows="1" cols="30" name="description"></textarea>
+			</div>
+			<div class="col-6 my-2">
+				<label for="foto-url" class="form-label">Foto pizza</label>
+				<input id="foto-url" class="form-control" type="url" name="url">
+			</div>
+			<div th:each="category : ${categories}" th:object="${category}" class="my-2">
+				<input th:id="${'category-' + category.id}" type="checkbox" th:value="*{id}" name="categories">
+				<label th:id="${'category-' + category.id}">[[ *{name} ]]</label>
+			</div>
+			<div class="form-check form-switch m-2">
+				<label for="foto-visible" class="form-check-label">Visibilità</label>
+				<input id="foto-visible" class="form-check-input" type="checkbox" role="switch" name="visible">
+				<label style="color: red" th:if="${errors != null && errors.hasFieldErrors('visible')}">
+					[[ ${errors.getFieldError('visible').defaultMessage} ]]
+				</label>
+			</div>
+		</div>
+		<div class="my-3 d-flex justify-content-between">
+			<a th:href="@{/}" class="btn btn-secondary"> <i class="fa-solid fa-arrow-left"></i> Torna alla home </a>
+			<button class="btn btn-success">Aggiungi foto</button>		
+		</div>
+		</form>
+	</main>
+</body>
+</html>
