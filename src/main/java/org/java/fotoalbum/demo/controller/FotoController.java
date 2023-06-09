@@ -65,7 +65,7 @@ public class FotoController {
 	}
 	
 //	CREATE --------------------------------------------------------------------------------------
-	@GetMapping("/foto/create")
+	@GetMapping("/admin/foto/create")
 	public String create(Model model) {
 		List<Category> categories = categoryServ.findAll();
 
@@ -75,7 +75,7 @@ public class FotoController {
 		return "foto/foto-create";
 	}
 
-	@PostMapping("/foto/store")
+	@PostMapping("/admin/foto/store")
 	public String store(@Valid @ModelAttribute Foto foto, BindingResult bindingResult, Model model){
 
 		if (bindingResult.hasErrors()) {
@@ -92,7 +92,7 @@ public class FotoController {
 	}
 
 //	EDIT ----------------------------------------------------------------------------------------
-	@GetMapping("/foto/edit/{id}")
+	@GetMapping("/admin/foto/edit/{id}")
 	public String edit(@PathVariable("id") int id, Model model) {
 		List<Category> categories = categoryServ.findAll();
 
@@ -105,7 +105,7 @@ public class FotoController {
 		return "foto/foto-edit";
 	}
 
-	@PostMapping("/foto/update/{id}")
+	@PostMapping("/admin/foto/update/{id}")
 	public String update(@PathVariable("id") int id, @Valid @ModelAttribute Foto foto, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
@@ -121,7 +121,7 @@ public class FotoController {
 		return "redirect:/";
 	}
 //	DELETE --------------------------------------------------------------------------------------
-	@GetMapping("/foto/delete/{id}")
+	@GetMapping("/admin/foto/delete/{id}")
 	public String delete(@PathVariable("id") int id) {
 
 //		Optional<Foto> fotoOpt = fotoServ.findById(id);

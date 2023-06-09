@@ -13,7 +13,7 @@
 		<h1 class="text-danger"> Modifica foto </h1>
 	</header>
 	<main class="container" th:object="${foto}">
-		<form th:action="@{/foto/update/{id} (id=*{id})}" method="POST" >
+		<form th:action="@{/admin/foto/update/{id} (id=*{id})}" method="POST" >
 		<div class="row">
 			<div class="col-6 my-2">
 				<label for="foto-title" class="form-label">Titolo foto</label>
