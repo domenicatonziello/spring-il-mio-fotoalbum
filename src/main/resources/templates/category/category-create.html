@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<!-- BOOTSTRAP -->
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<main class="container my-5">
+		<form th:action="@{/admin/categories/store}" method="POST">
+			<div class="row">
+				<div class="col-6 my-2">
+					<label for="name" class="form-label">Nome</label>
+					<input id="name" class="form-control" type="text" name="name">
+					<label style="color: red" th:if="${errors != null && errors.hasFieldErrors('name')}">
+							[[ ${errors.getFieldError('name').defaultMessage} ]]
+					</label>			
+				</div>
+			</div>
+			<div class="my-3 d-flex justify-content-between">
+				<a th:href="@{/admin/categories}" class="btn btn-secondary"> <i class="fa-solid fa-arrow-left"></i> Indietro </a>
+				<button class="btn btn-success">Aggiungi categoria</button>		
+			</div>
+		</form>
+	</main>
+</body>
+</html>
