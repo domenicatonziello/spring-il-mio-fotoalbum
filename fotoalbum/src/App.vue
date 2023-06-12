@@ -47,7 +47,7 @@ export default {
   <header class="container my-3">
     <nav class="navbar">
       <h1 class="text-danger">Album</h1>
-      <a href="http://localhost:8080" class="btn btn-outline-success">Accedi</a>
+      <a href="http://localhost:8080" class="btn btn-outline-success">Accedi all'area riservata</a>
     </nav>
   </header>
 
@@ -55,7 +55,7 @@ export default {
   <main class="container">
     <!-- FILTRO -->
     <div class="row mb-5">
-      <div class="col-4 ms-auto">
+      <div class="col-4 mx-auto">
         <div class="input-group">
           <input @keyup.enter="filterFoto(searchTerm)" type="text" class="form-control"
             placeholder="Filtra per titolo foto..." v-model="searchTerm">
@@ -88,8 +88,9 @@ export default {
         <button type="button" class="btn btn-primary"
           @click="sendMessage(contatto.email, contatto.message)">Invia</button>
       </form>
-
     </section>
+
+
   </main>
 </template>
 

@@ -1,11 +1,6 @@
 <script>
 export default {
     name: 'FotoCard',
-    data() {
-        return {
-
-        }
-    },
     props: { foto: Object }
 }
 </script>
