@@ -13,7 +13,7 @@
 		<h1 class="text-danger"> Aggiungi foto </h1>
 	</header>
 	<main class="container">
-		<form th:action="@{/admin/foto/store}" method="POST">
+		<form th:action="@{/foto/store}" method="POST">
 			<div class="row">
 				<div class="col-6 my-2">
 					<label for="foto-title" class="form-label">Titolo foto</label>
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 			<div class="my-3 d-flex justify-content-between">
-				<a th:href="@{/}" class="btn btn-secondary"> <i class="fa-solid fa-arrow-left"></i> Torna alla home </a>
+				<a th:href="@{/foto}" class="btn btn-secondary"> <i class="fa-solid fa-arrow-left"></i> Torna alla home </a>
 				<button class="btn btn-success">Aggiungi foto</button>		
 			</div>
 		</form>

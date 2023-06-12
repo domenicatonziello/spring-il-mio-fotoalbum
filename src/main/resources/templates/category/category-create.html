@@ -10,7 +10,7 @@
 </head>
 <body>
 	<main class="container my-5">
-		<form th:action="@{/admin/categories/store}" method="POST">
+		<form th:action="@{/categories/store}" method="POST">
 			<div class="row">
 				<div class="col-6 my-2">
 					<label for="name" class="form-label">Nome</label>
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			<div class="my-3 d-flex justify-content-between">
-				<a th:href="@{/admin/categories}" class="btn btn-secondary"> <i class="fa-solid fa-arrow-left"></i> Indietro </a>
+				<a th:href="@{/categories}" class="btn btn-secondary"> <i class="fa-solid fa-arrow-left"></i> Indietro </a>
 				<button class="btn btn-success">Aggiungi categoria</button>		
 			</div>
 		</form>

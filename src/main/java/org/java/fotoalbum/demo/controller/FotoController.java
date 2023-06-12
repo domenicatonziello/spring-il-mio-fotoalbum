@@ -30,7 +30,7 @@ public class FotoController {
 	private CategoryService categoryServ;
 	
 //	INDEX --------------------------------------------------------------------------------------
-	@GetMapping("/")
+	@GetMapping("/foto")
 	public String index(Model model) {
 		
 		List<Foto> foto = fotoServ.findAll();
@@ -40,7 +40,7 @@ public class FotoController {
 	}
 	
 //	FILTRO --------------------------------------------------------------------------------------
-	@PostMapping("/")
+	@PostMapping("/foto")
 	public String filterPhoto(Model model, @RequestParam(required = false) String title) {
 
 		List<Foto> fotoList = fotoServ.findByTitleContaining(title);
@@ -65,7 +65,7 @@ public class FotoController {
 	}
 	
 //	CREATE --------------------------------------------------------------------------------------
-	@GetMapping("/admin/foto/create")
+	@GetMapping("/foto/create")
 	public String create(Model model) {
 		List<Category> categories = categoryServ.findAll();
 
@@ -75,7 +75,7 @@ public class FotoController {
 		return "foto/foto-create";
 	}
 
-	@PostMapping("/admin/foto/store")
+	@PostMapping("/foto/store")
 	public String store(@Valid @ModelAttribute Foto foto, BindingResult bindingResult, Model model){
 
 		if (bindingResult.hasErrors()) {
@@ -88,11 +88,11 @@ public class FotoController {
 
 		fotoServ.save(foto);
 
-		return "redirect:/";
+		return "redirect:/foto";
 	}
 
 //	EDIT ----------------------------------------------------------------------------------------
-	@GetMapping("/admin/foto/edit/{id}")
+	@GetMapping("/foto/edit/{id}")
 	public String edit(@PathVariable("id") int id, Model model) {
 		List<Category> categories = categoryServ.findAll();
 
@@ -105,7 +105,7 @@ public class FotoController {
 		return "foto/foto-edit";
 	}
 
-	@PostMapping("/admin/foto/update/{id}")
+	@PostMapping("/foto/update/{id}")
 	public String update(@PathVariable("id") int id, @Valid @ModelAttribute Foto foto, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
@@ -113,15 +113,15 @@ public class FotoController {
 			model.addAttribute("foto", foto);
 			model.addAttribute("errors", bindingResult);
 
-			return "photo/edit";
+			return "foto/edit";
 		}
 
 		fotoServ.save(foto);
 
-		return "redirect:/";
+		return "redirect:/foto";
 	}
 //	DELETE --------------------------------------------------------------------------------------
-	@GetMapping("/admin/foto/delete/{id}")
+	@GetMapping("/foto/delete/{id}")
 	public String delete(@PathVariable("id") int id) {
 
 //		Optional<Foto> fotoOpt = fotoServ.findById(id);
@@ -129,7 +129,7 @@ public class FotoController {
 
 		fotoServ.deleteById(id);
 
-		return "redirect:/";
+		return "redirect:/foto";
 	}
 
 

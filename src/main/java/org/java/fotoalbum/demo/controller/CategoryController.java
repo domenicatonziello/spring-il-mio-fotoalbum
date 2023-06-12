@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/admin/categories")
+@RequestMapping("/categories")
 public class CategoryController {
 	
 	@Autowired
@@ -58,7 +58,7 @@ public class CategoryController {
 
 		categoryServ.save(category);
 
-		return "redirect:/admin/categories";
+		return "redirect:/categories";
 	}
 
 	@GetMapping("/delete/{id}")
@@ -74,6 +74,6 @@ public class CategoryController {
 
 		categoryServ.deleteById(id);
 
-		return "redirect:/admin/categories";
+		return "redirect:/categories";
 	}
 }

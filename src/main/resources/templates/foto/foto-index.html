@@ -13,14 +13,14 @@
 	<header class="container d-flex justify-content-between align-items-center my-5">
 		<h1 class="text-danger">Album</h1>
 		<div>
-			<a class="btn btn-secondary mx-2" th:href="@{/admin/categories}" sec:authorize="hasAuthority('ADMIN')">Categorie</a>
+			<a class="btn btn-secondary mx-2" th:href="@{/categories}" sec:authorize="hasAuthority('ADMIN')">Categorie</a>
 			<a class="btn btn-danger" th:href="@{/logout}" sec:authorize="isAuthenticated()">Esci</a>		
 		</div>
 	</header>
 	<!-- Main -->
 	<main class="container">
-		<a class="btn btn-success" th:href="@{/admin/foto/create}"><i class="fa-solid fa-plus"></i> Aggiungi foto</a>
-		<form th:action="@{/}" method="POST" class="text-end my-3">
+		<a class="btn btn-success" th:href="@{/foto/create}"><i class="fa-solid fa-plus"></i> Aggiungi foto</a>
+		<form th:action="@{/foto}" method="POST" class="text-end my-3">
 				<input type="text" name="title" th:value="${title}">
 				<button class="btn btn-primary">Cerca</button>
 		</form>
@@ -49,10 +49,10 @@
 		      	<a th:href="@{/foto/{id} (id= *{id} )}" class="btn btn-sm btn-primary">
 		      		<i class="fa-solid fa-eye"></i>
 		      	</a>
-		      	<a th:href="@{/admin/foto/edit/{id} (id= *{id} )}" class="btn btn-sm btn-warning text-white">
+		      	<a th:href="@{/foto/edit/{id} (id= *{id} )}" class="btn btn-sm btn-warning text-white">
 		      		<i class="fa-regular fa-pen-to-square"></i>
 		      	</a>
-		      	<a th:href="@{/admin/foto/delete/{id} (id= *{id} )}" class="btn btn-sm btn-danger">
+		      	<a th:href="@{/foto/delete/{id} (id= *{id} )}" class="btn btn-sm btn-danger">
 		      		<i class="fa-solid fa-trash"></i>
 		      	</a>
 		      </td>
