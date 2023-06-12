@@ -20,7 +20,7 @@
     			<p class="card-text">[[*{description}]]</p>
     			
     			<div th:if="${categories.size() > 0}">
-    				<a class="btn btn-success" th:href="@{categories/create}" sec:authorize="hasAuthority('ADMIN')">Aggiungi categoria</a>
+    				<a class="btn btn-success" th:href="@{/admin/categories/create}" sec:authorize="hasAuthority('ADMIN')">Aggiungi categoria</a>
 	    			<h6 class="card-title">Categorie: </h6>
 	    			<ul class="list-group list-group-flush">
 	    				<li class="list-group-item bg-transparent border-0" th:each="category : ${categories}" th:object="${category}"> - [[*{name}]]</li>
