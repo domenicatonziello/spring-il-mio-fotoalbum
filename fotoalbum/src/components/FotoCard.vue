@@ -6,15 +6,12 @@ export default {
 
         }
     },
-    props: { foto: Object },
-    mounted() {
-        console.log(this.foto);
-    }
+    props: { foto: Object }
 }
 </script>
 
 <template>
-    <div class="card me-5 p-0" style="width: 20rem;">
+    <div class="card p-0 m-5" style="width: 20rem;">
         <img :src="foto.url" class="card-img-top" :alt="foto.name">
         <div class="card-body">
             <h3 class="card-title"> {{ foto.title }}</h3>
