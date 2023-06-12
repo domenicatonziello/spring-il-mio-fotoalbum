@@ -23,7 +23,7 @@ public class ApiController {
 	@GetMapping("/foto")
 	public ResponseEntity<List<Foto>> index() {
 
-		List<Foto> foto = fotoService.findAll();
+		List<Foto> foto = fotoService.findByVisibleTrue();
 
 		if (foto.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -35,7 +35,7 @@ public class ApiController {
 	@GetMapping("/foto/filter")
 	public ResponseEntity<List<Foto>> apiFilterByTitle(@RequestParam(required = false) String title) {
 
-		List<Foto> foto = fotoService.findByTitleContaining(title);
+		List<Foto> foto = fotoService.findByTitleContainingAndVisibleTrue(title);
 
 		if (foto.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

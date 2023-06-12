@@ -38,5 +38,13 @@ public class FotoService {
 		fotoRepo.deleteById(id);
 
 	}
+	public List<Foto> findByVisibleTrue(){
+		
+		return fotoRepo.findByVisibleTrue();
+	
+	}
+	public List<Foto> findByTitleContainingAndVisibleTrue(String title){
+		return fotoRepo.findByTitleContainingAndVisibleTrue(title);
+	}
 
 }

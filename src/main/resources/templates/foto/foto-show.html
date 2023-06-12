@@ -19,8 +19,8 @@
    				<h5 class="card-title">[[*{title}]]</h5>
     			<p class="card-text">[[*{description}]]</p>
     			
+    			<a class="btn btn-success" th:href="@{/categories/create}" sec:authorize="hasAuthority('ADMIN')">Aggiungi categoria</a>
     			<div th:if="${categories.size() > 0}">
-    				<a class="btn btn-success" th:href="@{/admin/categories/create}" sec:authorize="hasAuthority('ADMIN')">Aggiungi categoria</a>
 	    			<h6 class="card-title">Categorie: </h6>
 	    			<ul class="list-group list-group-flush">
 	    				<li class="list-group-item bg-transparent border-0" th:each="category : ${categories}" th:object="${category}"> - [[*{name}]]</li>
@@ -28,7 +28,7 @@
   				</div>
   				<div th:unless="${categories.size() > 0}"> Nessuna categoria</div>
   				
-  				<a th:href="@{/}" class="btn btn-secondary mt-5"> <i class="fa-solid fa-arrow-left"></i> Indietro</a>
+  				<a th:href="@{/foto}" class="btn btn-secondary mt-5"> <i class="fa-solid fa-arrow-left"></i> Indietro</a>
   			</div>
 		</div>
 	</main>
