@@ -86,7 +86,7 @@ export default {
           </div>
         </div>
         <button type="button" class="btn btn-primary"
-          @click="sendMessage(contatto.email, contatto.message)">Submit</button>
+          @click="sendMessage(contatto.email, contatto.message)">Invia</button>
       </form>
 
     </section>
